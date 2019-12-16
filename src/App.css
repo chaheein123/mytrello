@@ -1,0 +1,7 @@
+.App {
+  position: relative;
+}
+
+.round-borders {
+  border-radius: 10px;
+}

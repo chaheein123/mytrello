@@ -1,0 +1,17 @@
+.sign-in-and-sign-up {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.214);
+  position: absolute;
+  top: 50%;
+  width: 50%;
+  min-width: 400px;
+  height: 68%;
+  min-height: 500px;
+  display: inline-block;
+  transform: translate(-50%,-50%);
+}
+
+.flex-sign-in-and-sign-up {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+}
