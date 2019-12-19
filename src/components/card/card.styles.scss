@@ -1,0 +1,38 @@
+.trello-card {
+  width: 250px;
+  background-color: rgb(245, 237, 237);
+  display: inline-block;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.276);
+  margin: 0px 5px 36px 0;
+  position: relative;
+  vertical-align: top;
+  padding: 7px 8px;
+  .trello-card-flex{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.trello-card-headers {
+  line-height: 1;
+  padding-bottom: 5px;
+
+  h7 {
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 5px;
+  }
+}
+
+.trello-card-add {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.378);
+  cursor: pointer;
+  padding: 2px 0 2px 5px;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.096);
+  }
+}
