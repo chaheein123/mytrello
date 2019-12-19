@@ -7,6 +7,7 @@ import { LandingPage } from "./pages/LandingPage/landingpage.component";
 import MainPage from "./pages/MainPage/mainpage.component";
 
 function App() {
+
   return (
     <div className="App">
       <BrowserRouter>
