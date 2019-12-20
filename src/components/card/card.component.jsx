@@ -8,7 +8,7 @@ export const Card = (props) => (
   <div className="trello-card">
     <div className="trello-card-flex">
       <div className="trello-card-headers">
-        <h7>{props.title}</h7>
+        <h2>{props.title}</h2>
       </div>
       {
         props.cardItems.map((cardItem) => {

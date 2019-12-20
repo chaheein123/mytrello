@@ -21,8 +21,6 @@ class MainPage extends React.Component {
   render() {
 
     let cards = [...this.state.cards];
-    console.log(cards, "yoyoyo");
-    console.log(cards[0])
     return (
       <div className="main-page">
 
