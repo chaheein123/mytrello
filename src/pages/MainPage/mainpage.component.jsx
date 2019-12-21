@@ -75,6 +75,7 @@ class MainPage extends React.Component {
                     {(provided, snapshot) => {
                       return (
                         <div
+                          className="card-wrapper"
                           {...provided.droppableProps}
                           ref={provided.innerRef}
                         >
