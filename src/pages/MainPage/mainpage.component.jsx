@@ -6,6 +6,8 @@ import { Card } from "../../components/card/card.component";
 
 import { CARD_DATA } from "../TrelloCardsDataStructure/trellocardsdata"
 
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+
 class MainPage extends React.Component {
   constructor(props) {
     super(props);
@@ -14,12 +16,46 @@ class MainPage extends React.Component {
       // cards: CARD_DATA,
       cards: CARD_DATA
     };
+  }
 
-    // console.log("This is the card data", CARD_DATA);
+  onDragEnd = (result, theData) => {
+    const { source, destination } = result;
+    if (!source || !destination) return;
+    if (source.droppableId == destination.droppableId && source.index == destination.index) return;
+
+    else if (source.droppableId == destination.droppableId && source.index != destination.index) {
+      for (let i = 0; i < theData.length; i++) {
+        if (theData[i]["id"] == source.droppableId) {
+          var droppableIndex = i;
+          break;
+        }
+      }
+      let takenout = theData[droppableIndex].items.splice(source.index, 1);
+      takenout = takenout[0];
+      theData[droppableIndex].items.splice(destination.index, 0, takenout);
+    }
+
+    else if (source.droppableId != destination.droppableId) {
+      for (let i = 0; i < theData.length; i++) {
+        if (theData[i]["id"] == source.droppableId) {
+          var firstIndex = i;
+          break;
+        }
+      }
+      let takenout = theData[firstIndex].items.splice(source.index, 1);
+      takenout = takenout[0];
+      console.log(takenout, "yoyo this is the takenout");
+      for (let j = 0; j < theData.length; j++) {
+        if (theData[j]["id"] == destination.droppableId) {
+          var secondIndex = j;
+          break;
+        }
+      }
+      theData[secondIndex].items.splice(destination.index, 0, takenout)
+    }
   }
 
   render() {
-
     let cards = [...this.state.cards];
     return (
       <div className="main-page">
@@ -29,15 +65,35 @@ class MainPage extends React.Component {
         </div>
 
         <div className="main-page-body">
-          {
-            cards.map((card) => {
-              return (<Card
-                key={card.id}
-                title={card.title}
-                cardItems={card.items}
-              />)
-            })
-          }
+          <DragDropContext onDragEnd={result => this.onDragEnd(result, this.state.cards)}>
+
+            {
+              cards.map((card, index) => {
+                // console.log(index, "yeah index")
+                return (
+                  <Droppable droppableId={card.id} key={card.id}>
+                    {(provided, snapshot) => {
+                      return (
+                        <div
+                          {...provided.droppableProps}
+                          ref={provided.innerRef}
+                        >
+                          <Card
+                            key={card.id}
+                            title={card.title}
+                            cardItems={card.items}
+                          />
+                          {provided.placeholder}
+                        </div>
+                      )
+                    }}
+
+                  </Droppable>
+
+                )
+              })
+            }
+          </DragDropContext>
         </div>
       </div>
     );

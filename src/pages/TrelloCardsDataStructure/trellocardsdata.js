@@ -1,42 +1,58 @@
+import uuid from "uuid/v4";
 
 export const CARD_DATA = [
   {
-    id: 1,
+    id: uuid(),
     title: "Things to do",
     items: [
       {
+        id: uuid(),
         content: "Brush teeth"
       },
       {
+        id: uuid(),
         content: "Wash face"
       },
       {
+        id: uuid(),
         content: "Go to dojo"
+      },
+      {
+        id: uuid(),
+        content: "aaaaaa"
+      },
+      {
+        id: uuid(),
+        content: "bbbb"
       }
     ]
   },
   {
-    id: 2,
+    id: uuid(),
     title: "Doing",
     items: [
       {
+        id: uuid(),
         content: "Study"
       },
       {
+        id: uuid(),
         content: "Debugging"
       },
       {
+        id: uuid(),
         content: "Eating"
       }
     ]
   },
   {
-    id: 3,
+    id: uuid(),
     title: "Done",
     items: [
-      // {
-      //   content: "Project #2"
-      // }
+      {
+        id: uuid(),
+        content: "Project #2"
+      }
     ]
   }
 ]

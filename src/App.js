@@ -8,11 +8,6 @@ import MainPage from "./pages/MainPage/mainpage.component";
 
 function App() {
 
-  // console.log(useState(10));
-  const [yoyo, mama] = useState(10);
-  console.log(yoyo, "this is the yoyo");
-  console.log(mama, "This is the mama");
-
 
   return (
     <div className="App">
