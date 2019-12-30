@@ -53,7 +53,7 @@ class MainPage extends React.Component {
       }
       theData[secondIndex].items.splice(destination.index, 0, takenout)
     }
-  }
+  };
 
   render() {
     let cards = [...this.state.cards];
@@ -69,11 +69,11 @@ class MainPage extends React.Component {
 
             {
               cards.map((card, index) => {
-                // console.log(index, "yeah index")
                 return (
                   <Droppable droppableId={card.id} key={card.id}>
                     {(provided, snapshot) => {
                       return (
+
                         <div
                           className="card-wrapper"
                           {...provided.droppableProps}
