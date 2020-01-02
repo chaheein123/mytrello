@@ -11,4 +11,4 @@ export const CardItem = (props) => (
     {props.content}
   </div>
 
-)
+);

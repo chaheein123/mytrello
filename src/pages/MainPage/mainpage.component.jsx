@@ -83,6 +83,8 @@ class MainPage extends React.Component {
                             key={card.id}
                             title={card.title}
                             cardItems={card.items}
+                            id={card.id}
+                            eachIndex={index}
                           />
                           {provided.placeholder}
                         </div>
