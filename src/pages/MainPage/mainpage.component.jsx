@@ -2,7 +2,7 @@ import React from 'react';
 
 import "./mainpage.styles.scss";
 
-import { Card } from "../../components/card/card.component";
+import Card from "../../components/card/card.component";
 
 import { CARD_DATA } from "../TrelloCardsDataStructure/trellocardsdata"
 
