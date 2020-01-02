@@ -1,14 +1,22 @@
 import React from 'react';
+import ContentEditable from 'react-contenteditable';
 
 import "./carditem.styles.scss";
 
 export const CardItem = (props) => (
 
-  <div
+  // <div
+  //   className="card-item"
+  // >
+  //   {props.content}
+  // </div>
+
+  <ContentEditable
     className="card-item"
-    onClick={e => console.log("ggiggity")}
-  >
-    {props.content}
-  </div>
+    disabled={false}
+    html={props.content}
+  // onChange={}
+  />
+
 
 );
