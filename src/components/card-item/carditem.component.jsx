@@ -3,20 +3,34 @@ import ContentEditable from 'react-contenteditable';
 
 import "./carditem.styles.scss";
 
-export const CardItem = (props) => (
+class CardItem extends React.Component {
+  constructor(props) {
+    super(props);
 
-  // <div
-  //   className="card-item"
-  // >
-  //   {props.content}
-  // </div>
-
-  <ContentEditable
-    className="card-item"
-    disabled={false}
-    html={props.content}
-  // onChange={}
-  />
+    this.state = {
+      disableContent: true
+    };
+  };
 
 
-);
+
+  render() {
+    return (
+      <div>
+        <ContentEditable
+          className="card-item"
+          disabled={this.state.disableContent}
+          html={this.props.content}
+          onChange={() => console.log("changeD!!!!")}
+          onClick={(event) =>
+            this.setState({ disableContent: false })
+          }
+        />
+
+        {/* {props.content} */}
+      </div>
+    )
+  }
+}
+
+export default CardItem;

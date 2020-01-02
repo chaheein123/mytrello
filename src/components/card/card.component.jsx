@@ -3,7 +3,7 @@ import uuid from "uuid/v4";
 
 import "./card.styles.scss";
 
-import { CardItem } from "../card-item/carditem.component";
+import CardItem from "../card-item/carditem.component";
 import { Draggable } from 'react-beautiful-dnd';
 
 import { CARD_DATA } from "../../pages/TrelloCardsDataStructure/trellocardsdata";

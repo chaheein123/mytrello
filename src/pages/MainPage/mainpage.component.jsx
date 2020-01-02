@@ -44,7 +44,6 @@ class MainPage extends React.Component {
       }
       let takenout = theData[firstIndex].items.splice(source.index, 1);
       takenout = takenout[0];
-      console.log(takenout, "yoyo this is the takenout");
       for (let j = 0; j < theData.length; j++) {
         if (theData[j]["id"] == destination.droppableId) {
           var secondIndex = j;
