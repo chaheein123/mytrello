@@ -13,8 +13,8 @@ class MainPage extends React.Component {
     super(props);
 
     this.state = {
-      // cards: CARD_DATA,
-      cards: CARD_DATA
+      cards: CARD_DATA,
+      outsideClicked: false,
     };
   }
 
@@ -59,11 +59,17 @@ class MainPage extends React.Component {
     return (
       <div className="main-page">
 
-        <div className="main-page-nav">
+        <div
+          className="main-page-nav"
+          onClick={() =>
+            this.setState({ outsideClicked: true })}
+        >
           <h6>MyTrello</h6>
         </div>
 
-        <div className="main-page-body">
+        <div
+          className="main-page-body"
+        >
           <DragDropContext onDragEnd={result => this.onDragEnd(result, this.state.cards)}>
 
             {
@@ -84,6 +90,7 @@ class MainPage extends React.Component {
                             cardItems={card.items}
                             id={card.id}
                             eachIndex={index}
+                            outsideClicked={this.state.outsideClicked}
                           />
                           {provided.placeholder}
                         </div>

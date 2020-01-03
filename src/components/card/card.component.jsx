@@ -13,11 +13,13 @@ class Card extends React.Component {
     super(props);
 
     this.state = {
-      cardData: CARD_DATA[this.props.eachIndex]["items"]
+      cardData: CARD_DATA[this.props.eachIndex]["items"],
     }
   };
 
   render() {
+
+    console.log(this.props.outsideClicked, "this is the outside click nigga")
 
     return (
       <div className="trello-card">
@@ -38,6 +40,7 @@ class Card extends React.Component {
                       >
                         <CardItem
                           content={cardItem.content}
+                          outsideClicked={this.props.outsideClicked}
                         />
                       </div>
                     )

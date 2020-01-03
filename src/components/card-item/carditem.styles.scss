@@ -1,15 +1,29 @@
+.carditem {
+  display: flex;
+  box-shadow: 0 1px rgba(0, 0, 0, 0.248);
+  // border: 2px black solid;
+  border-radius: 5px;
+  // line-height: 1.5;
+  margin: 3px 0;
+  overflow: hidden;
+  // padding: 2px;
+
+}
+
 .card-item {
   background-color: white;
-  margin: 3px 0;
-  border-radius: 5px;
-  font-size: 14px;
-  padding: 6px 0 6px 5px;
-  box-shadow: 0 1px rgba(0, 0, 0, 0.248);
   cursor: pointer;
-  // height: 36px;
-  line-height: 1.5;
+  flex: 7;
+  padding: 4px;
 
   &:hover{
     background-color: rgba(170, 160, 160, 0.158);
   }
+}
+
+.editable-option {
+  background-color: pink;
+  cursor: pointer;
+  flex: 1;
+  padding: 4px;
 }
