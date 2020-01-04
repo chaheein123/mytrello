@@ -16,6 +16,7 @@ class Card extends React.Component {
     this.state = {
       cardData: CARD_DATA[this.props.eachIndex]["items"],
       addCardClicked: false,
+      inputValue: "",
     }
   };
 
@@ -49,60 +50,56 @@ class Card extends React.Component {
             }
             )
           }
-          <div
 
-            onClick={() => {
-              if (this.state.addCardClicked) {
-                this.setState({ addCardClicked: false })
-              }
-              else {
-                this.setState({ addCardClicked: true })
-              }
-            }}
-          >
-            {
-              this.state.addCardClicked ?
-                (
-                  <div className="add-card-wrapper">
-                    <input
-                      className="trello-card-new card-item carditem"
-                      autoFocus={true}
-                    />
+          {
+            this.state.addCardClicked ?
+              <div className="add-card-wrapper">
+                <input
+                  className="trello-card-new card-item carditem"
+                  autoFocus={true}
+                  onChange={(event) => this.setState(
+                    { inputValue: event.target.value }
+                  )}
+                  value={this.state.inputValue}
+                />
 
-                    <Button variant="success" className="add-button">
-                      Add Card
-                    </Button>
-                    <button
-                      className="close-button-space"
-                      onClick={() => {
-                        // this.setState(
-                        //   { addCardClicked: false }
-                        // )
-                      }}
-                    >
-                      <span className="close-button">X</span>
-                    </button>
-
-
-
-                  </div>
-                )
-                :
-                (
-                  <div className="trello-card-add">
-                    + Add another card
-                  </div>
-                )
-            }
-
-          </div>
+                <Button
+                  variant="success"
+                  className="add-button"
+                  onClick={() => {
+                    CARD_DATA[this.props.eachIndex]["items"].push({
+                      id: uuid(),
+                      content: this.state.inputValue
+                    });
+                    this.setState({ inputValue: "", addCardClicked: false })
+                  }}
+                >
+                  Add Card
+                </Button>
+                <button
+                  className="close-button-space"
+                  onClick={() => this.setState(
+                    { addCardClicked: false },
+                    this.setState({ inputValue: "" })
+                  )}
+                >
+                  <span className="close-button">X</span>
+                </button>
+              </div>
+              :
+              <div
+                className="trello-card-add"
+                onClick={() =>
+                  this.setState({ addCardClicked: true })
+                }
+              >
+                + Add another card
+              </div>
+          }
         </div>
       </div>
     )
   };
-
-
-
 };
 
 export default Card;
