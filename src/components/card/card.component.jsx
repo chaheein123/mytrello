@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import uuid from "uuid/v4";
+import Button from 'react-bootstrap/Button'
 
 import "./card.styles.scss";
 
@@ -14,13 +15,11 @@ class Card extends React.Component {
 
     this.state = {
       cardData: CARD_DATA[this.props.eachIndex]["items"],
+      addCardClicked: false,
     }
   };
 
   render() {
-
-    console.log(this.props.outsideClicked, "this is the outside click nigga")
-
     return (
       <div className="trello-card">
         <div className="trello-card-flex">
@@ -51,13 +50,52 @@ class Card extends React.Component {
             )
           }
           <div
-            className="trello-card-add"
+
             onClick={() => {
-              this.setState({ cardData: CARD_DATA[this.props.eachIndex]["items"].push({ id: uuid(), content: "" }) })
+              if (this.state.addCardClicked) {
+                this.setState({ addCardClicked: false })
+              }
+              else {
+                this.setState({ addCardClicked: true })
+              }
             }}
           >
-            + Add another card
-        </div>
+            {
+              this.state.addCardClicked ?
+                (
+                  <div className="add-card-wrapper">
+                    <input
+                      className="trello-card-new card-item carditem"
+                      autoFocus={true}
+                    />
+
+                    <Button variant="success" className="add-button">
+                      Add Card
+                    </Button>
+                    <button
+                      className="close-button-space"
+                      onClick={() => {
+                        // this.setState(
+                        //   { addCardClicked: false }
+                        // )
+                      }}
+                    >
+                      <span className="close-button">X</span>
+                    </button>
+
+
+
+                  </div>
+                )
+                :
+                (
+                  <div className="trello-card-add">
+                    + Add another card
+                  </div>
+                )
+            }
+
+          </div>
         </div>
       </div>
     )

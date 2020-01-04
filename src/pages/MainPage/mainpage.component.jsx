@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 
 import "./mainpage.styles.scss";
 
@@ -7,6 +7,11 @@ import Card from "../../components/card/card.component";
 import { CARD_DATA } from "../TrelloCardsDataStructure/trellocardsdata"
 
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+
+import Overlay from 'react-bootstrap/Overlay';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Button from 'react-bootstrap/Button';
+import Tooltip from 'react-bootstrap/Tooltip'
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -55,10 +60,11 @@ class MainPage extends React.Component {
   };
 
   render() {
+
     let cards = [...this.state.cards];
     return (
-      <div className="main-page">
 
+      <div className="main-page">
         <div
           className="main-page-nav"
           onClick={() =>
@@ -109,4 +115,19 @@ class MainPage extends React.Component {
   };
 };
 
+
 export default MainPage;
+
+function renderTooltip(props) {
+  return <Tooltip {...props}>Simple tooltip</Tooltip>;
+}
+
+const Example = () => (
+  <OverlayTrigger
+    placement="right"
+    delay={{ show: 250, hide: 400 }}
+    overlay={renderTooltip}
+  >
+    <Button variant="success">Hover me to see</Button>
+  </OverlayTrigger>
+);

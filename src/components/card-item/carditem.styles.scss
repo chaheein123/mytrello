@@ -1,13 +1,9 @@
 .carditem {
   display: flex;
-  box-shadow: 0 1px rgba(0, 0, 0, 0.248);
-  // border: 2px black solid;
+  box-shadow: 0.5px 1px 1px rgba(0, 0, 0, 0.248);
   border-radius: 5px;
-  // line-height: 1.5;
   margin: 3px 0;
   overflow: hidden;
-  // padding: 2px;
-
 }
 
 .card-item {
@@ -15,6 +11,8 @@
   cursor: pointer;
   flex: 7;
   padding: 4px;
+  overflow-y: scroll;
+  overflow-x: auto;
 
   &:hover{
     background-color: rgba(170, 160, 160, 0.158);
@@ -22,7 +20,7 @@
 }
 
 .editable-option {
-  background-color: pink;
+  background-color: rgba(250, 239, 239, 0.534);
   cursor: pointer;
   flex: 1;
   padding: 4px;

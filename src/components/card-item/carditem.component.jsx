@@ -1,5 +1,6 @@
 import React from 'react';
 import ContentEditable from 'react-contenteditable';
+import uuid from "uuid/v4";
 
 import "./carditem.styles.scss";
 
@@ -10,12 +11,14 @@ class CardItem extends React.Component {
     this.state = {
       disableContent: true,
       // outsideClicked: this.props.outsideClicked
+      content: this.props.content
 
     };
   };
 
   clickEdit = () => {
     this.setState({ disableContent: false });
+
   };
 
   clickSave = () => {
@@ -39,13 +42,13 @@ class CardItem extends React.Component {
               className="card-item-editable editable-option"
               onClick={this.clickEdit}
             >
-              edit
+              Edit
             </div> :
             <div
               className="card-item-savable editable-option"
               onClick={this.clickSave}
             >
-              save
+              Save
             </div>
         }
         {/* {props.content} */}
