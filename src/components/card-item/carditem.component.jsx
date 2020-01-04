@@ -10,7 +10,6 @@ class CardItem extends React.Component {
 
     this.state = {
       disableContent: true,
-      // outsideClicked: this.props.outsideClicked
       content: this.props.content
 
     };
@@ -42,7 +41,7 @@ class CardItem extends React.Component {
               className="card-item-editable editable-option"
               onClick={this.clickEdit}
             >
-              Edit
+
             </div> :
             <div
               className="card-item-savable editable-option"
@@ -51,7 +50,6 @@ class CardItem extends React.Component {
               Save
             </div>
         }
-        {/* {props.content} */}
       </div>
     )
   }
