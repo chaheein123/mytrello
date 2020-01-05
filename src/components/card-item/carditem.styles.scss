@@ -19,14 +19,19 @@
   }
 }
 
-.editable-option {
+// .editable-option {
+//   background-color: rgba(250, 239, 239, 0.534);
+//   cursor: pointer;
+//   flex: 1;
+//   padding: 4px;
+// }
+
+.pencil-icon {
   background-color: rgba(250, 239, 239, 0.534);
   cursor: pointer;
   flex: 1;
   padding: 4px;
-}
 
-.card-item-editable {
   background-image: url("../../assets/pencil.png");
   background-size: contain;
   opacity: 0.6;

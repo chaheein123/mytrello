@@ -74,5 +74,11 @@
 
 .trello-card-new {
   width: 100%;
-  
+  border: none;
+  resize: none;
+  padding: 4px;
+  overflow-y: scroll;
+  box-shadow: 0.5px 1px 1px rgba(0, 0, 0, 0.248);
+  border-radius: 5px;
+  margin: 3px 0;
 }

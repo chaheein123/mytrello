@@ -54,13 +54,14 @@ class Card extends React.Component {
           {
             this.state.addCardClicked ?
               <div className="add-card-wrapper">
-                <input
-                  className="trello-card-new card-item carditem"
+                <textarea
+                  className="trello-card-new"
                   autoFocus={true}
                   onChange={(event) => this.setState(
                     { inputValue: event.target.value }
                   )}
                   value={this.state.inputValue}
+                  placeholder="Enter text here"
                 />
 
                 <Button

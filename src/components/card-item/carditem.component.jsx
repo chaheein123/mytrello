@@ -9,46 +9,42 @@ class CardItem extends React.Component {
     super(props);
 
     this.state = {
-      disableContent: true,
-      content: this.props.content
-
+      content: this.props.content,
+      editContent: false,
     };
   };
 
   clickEdit = () => {
-    this.setState({ disableContent: false });
-
+    this.setState(
+      {
+        editContent: true,
+      }
+    );
   };
-
-  clickSave = () => {
-    this.setState({ disableContent: true });
-  }
 
   render() {
 
     return (
-      <div className="carditem">
-        <ContentEditable
-          className="card-item"
-          disabled={this.state.disableContent}
-          html={this.props.content}
-          onChange={() => console.log("changeD!!!!")}
-        />
-
+      <div>
         {
-          this.state.disableContent ?
-            <div
-              className="card-item-editable editable-option"
-              onClick={this.clickEdit}
-            >
+          this.state.editContent ?
+            <input type="text" />
+            :
+            <div className="carditem">
+              <div
+                className="card-item"
+              >
+                {this.props.content}
+              </div>
+              <div
+                className="pencil-icon"
+                onClick={this.clickEdit}
+              >
+              </div>
 
-            </div> :
-            <div
-              className="card-item-savable editable-option"
-              onClick={this.clickSave}
-            >
-              Save
             </div>
+
+
         }
       </div>
     )
