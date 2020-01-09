@@ -4,7 +4,7 @@ import "./mainpage.styles.scss";
 
 import Card from "../../components/card/card.component";
 
-import { CARD_DATA } from "../TrelloCardsDataStructure/trellocardsdata"
+import { CARD_DATA } from "../TrelloCardsDataStructure/trellocardsdata";
 
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
